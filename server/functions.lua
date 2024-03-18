@@ -180,7 +180,6 @@ end
 function QBCore.Functions.SetPlayerBucket(source, bucket)
     if source and bucket then
         local plicense = QBCore.Functions.GetIdentifier(source, 'license')
-        Player(source).state:set('instance', bucket, true)
         SetPlayerRoutingBucket(source, bucket)
         QBCore.Player_Buckets[plicense] = { id = source, bucket = bucket }
         return true
@@ -386,8 +385,8 @@ end
 ---@param source any
 ---@param item string
 function QBCore.Functions.UseItem(source, item)
-    if GetResourceState('qb-inventory') == 'missing' then return end
-    exports['qb-inventory']:UseItem(source, item)
+    if GetResourceState('qs-inventory') == 'missing' then return end
+    exports['qs-inventory']:UseItem(source, item)
 end
 
 ---Kick Player
@@ -553,8 +552,8 @@ end
 ---@param amount number
 ---@return boolean
 function QBCore.Functions.HasItem(source, items, amount)
-    if GetResourceState('qb-inventory') == 'missing' then return end
-    return exports['qb-inventory']:HasItem(source, items, amount)
+    if GetResourceState('qs-inventory') == 'missing' then return end
+    return exports['qs-inventory']:HasItem(source, items, amount)
 end
 
 ---Notify

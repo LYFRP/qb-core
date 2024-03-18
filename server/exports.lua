@@ -306,9 +306,8 @@ end
 QBCore.Functions.UpdateGang = UpdateGang
 exports('UpdateGang', UpdateGang)
 
-local resourceName = GetCurrentResourceName()
 local function GetCoreVersion(InvokingResource)
-    local resourceVersion = GetResourceMetadata(resourceName, 'version')
+    local resourceVersion = GetResourceMetadata(GetCurrentResourceName(), 'version')
     if InvokingResource and InvokingResource ~= '' then
         print(('%s called qbcore version check: %s'):format(InvokingResource or 'Unknown Resource', resourceVersion))
     end
